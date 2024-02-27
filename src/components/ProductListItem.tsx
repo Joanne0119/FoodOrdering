@@ -1,17 +1,18 @@
 import { StyleSheet ,Text, View, Image } from 'react-native';
-import Colors from '../../constants/Colors';
-import products from '../../../assets/data/products';
+import Colors from '../constants/Colors';
+import products from '../../assets/data/products';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import ProductListItem from '../../components/ProductListItem';
 
-export default function MenuScreen() {
+const ProductListItem = ({ product }) => {
   return (
-    <SafeAreaView style={styles.container}>
-      <ProductListItem product={products[0]}/> 
-      <ProductListItem product={products[1]}/> 
-    </SafeAreaView>
-  );
+    <View style={styles.container}>
+      <Image style={styles.image} source={{ uri: product.image }} />
+      <Text style={styles.title}>{product.name}</Text>
+      <Text style={styles.price}>${product.price}</Text>
+    </View>
+  )
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -32,3 +33,5 @@ const styles = StyleSheet.create({
     aspectRatio: 1 //the height will automatically be caculated
   }
 });
+
+export default ProductListItem;
