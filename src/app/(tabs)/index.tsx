@@ -1,22 +1,9 @@
-import { View, FlatList} from 'react-native';
-import Colors from '../../constants/Colors';
-import products from '@assets/data/products';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import ProductListItem from '@components/ProductListItem';
+import { Redirect } from "expo-router";
 
-export default function MenuScreen() {
-  return (
-    <View>
-      {/* <ProductListItem product={products[0]}/> 
-      <ProductListItem product={products[1]}/>  */}
-      <FlatList
-        data={products}
-        renderItem={({ item }) => <ProductListItem product={item} />}
-        numColumns={2}
-        contentContainerStyle={{ gap: 10, padding: 10 }}
-        columnWrapperStyle={{ gap: 10 }} //make the gap between components
-      />
-    </View>
-  );
+
+export default function TabIndex() {
+  return <Redirect href={'/menu/'} />
 }
 
+//it will first automaticlly dedirect to index, 
+//but we don't have index file, so we create one, and that it redirect to the page we want
